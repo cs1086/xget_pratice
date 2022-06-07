@@ -10,6 +10,7 @@ class MyWidget extends StatelessWidget {
     //     builder: (_) => Text(
     //       'clicks: ${ctrl.count}',
     //     )),);
+
     return Container(child: Obx(()=>Text(
       'clicks: ${ctrl.count}',
     ),),);

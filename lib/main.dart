@@ -22,7 +22,7 @@ void main() => runApp(GetMaterialApp(
           name: '/',
           page: () => Home(),
           binding: BindingsBuilder(() {
-            Get.lazyPut<CountController>(() => CountController());//lazyPut只有使用時才會正式建立
+            
           }),
         ),
         GetPage(
