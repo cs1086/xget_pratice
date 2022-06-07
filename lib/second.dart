@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Second extends StatelessWidget {
-  const Second({Key? key}) : super(key: key);
+import 'common/api/member_data.dart';
 
+class Second extends StatelessWidget {
+  Second({Key? key}) : super(key: key);
+  final MemberData memberData = Get.find();
   @override
   Widget build(BuildContext context) {
     print(Get.arguments);
     return ElevatedButton(
       child: Container(
-        child: Text('/second'),
+        child: Text('memberData=${memberData.getData()}'),
       ),
       onPressed: () {
         Get.back(result: 'from second');

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xget_pratice/common/api/member_data.dart';
 import 'package:xget_pratice/count/count.dart';
 import 'package:xget_pratice/my_widget.dart';
 import 'package:xget_pratice/second.dart';
@@ -10,17 +11,40 @@ import 'common/ui/my_widget.dart';
 void main() => runApp(GetMaterialApp(
       home: Home(),
       initialRoute: '/',
+      // getPages: [
+      //   GetPage(name: '/', page: () => Home()),
+      //   GetPage(name: '/second', page: () => Second()),
+      //   GetPage(
+      //       name: '/third', page: () => Third(), transition: Transition.zoom),
+      // ],
       getPages: [
-        GetPage(name: '/', page: () => Home()),
-        GetPage(name: '/second', page: () => Second()),
         GetPage(
-            name: '/third', page: () => Third(), transition: Transition.zoom),
+          name: '/',
+          page: () => Home(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<CountController>(() => CountController());//lazyPut只有使用時才會正式建立
+          }),
+        ),
+        GetPage(
+          name: '/second',
+          page: () => Second(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<CountController>(() => CountController());
+            Get.put<MemberData>(MemberData());//依賴注入這個類別來使用
+          }),
+        ),
+        GetPage(
+          name: '/second',
+          page: () => Second(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<CountController>(() => CountController());
+          }),
+        ),
       ],
     ));
 
 class Home extends StatelessWidget {
   final controller = Get.put(CountController());
-
   @override
   Widget build(context) => Scaffold(
       appBar: AppBar(
