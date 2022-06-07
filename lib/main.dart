@@ -22,7 +22,6 @@ void main() => runApp(GetMaterialApp(
           name: '/',
           page: () => Home(),
           binding: BindingsBuilder(() {
-            
           }),
         ),
         GetPage(
@@ -50,7 +49,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
           title: GetBuilder<CountController>(
               builder: (_) => Text(
-                    'clicks: ${controller.count}',
+                    'clicks: ${_.count}',
                   ))),
       body: Center(
         child: Column(
