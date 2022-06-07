@@ -34,8 +34,8 @@ void main() => runApp(GetMaterialApp(
           }),
         ),
         GetPage(
-          name: '/second',
-          page: () => Second(),
+          name: '/third',
+          page: () => Third(),
           binding: BindingsBuilder(() {
             Get.lazyPut<CountController>(() => CountController());
           }),
